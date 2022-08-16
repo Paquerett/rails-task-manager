@@ -2,6 +2,10 @@
 
 <% @tasks.each do |task| %>
   <li>
-  <%= task.title %>
+  <%= link_to task.title, task_path(task) %>
+  <%= link_to "", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Delete?" } %>
   </li>
 <% end %>
+
+<%= link_to "Add a new task", new_task_path %>
+<a href="task_path"><i class="fa-regular fa-trash-can"></i></a>
